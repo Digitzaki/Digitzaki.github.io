@@ -1,0 +1,218 @@
+/* General styles */
+
+.glitch {
+    font-family: monospace;
+}
+
+.glitch-animation {
+    animation: glitch-animation 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-animation {
+    0%, 100% {
+        content: attr(data-text);
+    }
+    50% {
+        content: attr(data-glitch);
+    }
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #000000b9;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header, footer, .dropdown-content, nav, section {
+    box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 1); /* Vignette shading effect */
+}
+
+nav {
+    background-color: #252525bb;
+    text-align: center;
+    padding: 10px 0;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+nav ul li {
+    margin: 0 10px;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+nav ul li a:hover {
+    background-color: #8d0000;
+}
+
+nav ul li:nth-child(5) a,
+nav ul li:nth-child(6) a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+nav ul li:nth-child(5) a {
+    background-color: #7289da; /* Discord color */
+}
+nav ul li:nth-child(5) a:hover {
+    background-color: #555;
+}
+nav ul li:nth-child(5) a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent, rgba(0, 0, 0, 0.1));
+    border-radius: 12px; /* Same rounded edges as button */
+    pointer-events: none;
+}
+
+nav ul li:nth-child(6) a {
+    background-color: darkred; /* Dark red color for YouTube */
+}
+nav ul li:nth-child(6) a:hover {
+    background-color: #800000;
+}
+nav ul li:nth-child(6) a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent, rgba(0, 0, 0, 0.1));
+    border-radius: 12px; /* Same rounded edges as button */
+    pointer-events: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #222;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.7);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+.dropdown-content a:hover {
+    background-color: #555;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+main {
+    flex: 1;
+    padding-bottom: 40px; /* Space for the footer */
+}
+
+section {
+    max-width: 700px;
+    margin: auto;
+    background-color: #e2000086;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: large;
+    font-weight: 400;
+    box-shadow: 0px 4px 8px rgb();
+    transform: translateY(6%);
+}
+
+section h2 {
+    color: #000000;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+section p {
+    color: #000;
+    line-height: 1.6;
+}
+
+footer {
+    background-color: #0000009f;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Profile image styles */
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    display: block;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border: 3px solid black; /* Thin black outline */
+}
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Video background styles */
+.video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 101%;
+    min-height: 101%;
+    z-index: -1;
+    filter: blur(3px);
+}
+
+.blank-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 101%;
+    min-height: 101%;
+    z-index: -1;
+}
+
