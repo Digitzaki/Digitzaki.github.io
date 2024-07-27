@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const videoElement = document.getElementById('backgroundVideo');
-    const startTimes = [0, 23.50];
+    const startTimes = [0,23.50,55];
     const randomIndex = Math.floor(Math.random() * startTimes.length);
     const startTime = startTimes[randomIndex];
 

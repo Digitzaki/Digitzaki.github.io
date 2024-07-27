@@ -3,276 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GUOR: Final Wars</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            background-color: black;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            height: 100vh;
-        }
-
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            z-index: 2;
-            width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        #logo {
-            max-width: 300px;
-            max-height: 300px;
-            margin-bottom: 0; /* Adjusted margin to remove space */
-        }
-
-        #title,
-        #description {
-            color: rgb(255, 0, 0);
-            font-size: 24px;
-            margin: 0; /* Remove margin for h1 */
-            text-shadow: 2px 2px 4px black; /* Add a black outline */
-        }
-
-        video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: blur(5px);
-            transition: opacity 1s ease-in-out;
-        }
-
-        .description-box {
-            position: fixed;
-            background-color: rgba(0, 0, 0, 0.5); /* Faint black box */
-            color: rgb(0, 255, 51);
-            padding: 10px;
-            text-align: center;
-            max-width: 500px; /* Set a fixed width */
-            width: 80%; /* You can adjust this value based on your design */
-            top: 55%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1; /* Behind the header */
-            overflow: auto; /* Add overflow for scrolling if needed */
-        }
-
-        .discord-box {
-            overflow-y: auto;
-            position: fixed;
-            top: 230px;
-            right: 20px;
-        }
-        .youtube-box {
-                overflow-y: auto;
-                position: fixed;
-        }
-
-
-        @media (max-width: 1300px) {
-            .discord-box {
-                top: 150px;
-            }
-            .description-box {
-                top: 60%;
-            }
-        }
-
-        .download-box {
-            position: fixed;
-            background-color: rgba(0, 0, 0, 0.5); /* Faint black box */
-            color: rgb(0, 136, 255);
-            padding: 12px;
-            text-align: center;
-            max-width: 20%;
-            max-height: 8%;
-            font-size: 12px;
-            top: 80%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1; /* Behind the header */
-        }
-
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            text-align: center;
-            text-decoration: none;
-            background-color: #1ea9ef;
-            color: #fff;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            margin-right: 10px;
-        }
-
-        /* Darken the button on hover */
-        .button:hover {
-            background-color: #1172bc;
-        }
-
-        /* Container to center the buttons */
-        .button-container {
-            position: absolute;
-            top: 85%;
-            margin-top: 20px;
-            z-index: 2;
-        }
-        .announcements-box {
-            overflow-y: auto;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #00ff15;
-            font-size: 14px;
-            text-align: left;
-            max-width: 300px;
-            max-height: 80vh; /* Set a maximum height for the box */
-            box-sizing: border-box;
-            z-index: 2;
-            border: 1px solid #ff0000; /* Add a border for separation */
-            border-radius: 8px; /* Optional: Add rounded corners */
-        }
-
-        .announcements-box h2 {
-            margin-bottom: 10px;
-        }
-
-        .announcements-box ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .announcements-box li {
-            margin-bottom: 10px;
-        }
-    </style>
+    <title>Akiryuzaki Mods</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
 </head>
 <body>
-    <!-- Add the Announcements box -->
-    <div class="announcements-box">
-        <h2>ANNOUNCEMENTS</h2>
-        <ul>
-            <li>!! - [12/21/23] Update 1.1 is now Live!</li>
-            <li>!! - [5/17/24] The LGS (1.15) Update is Live!</li>
-        </ul>
-    </div>
-    <header>
-        <a href="index.html" class="button" style="position: absolute; top: 10px; left: 10px;">Home</a>
-        <img id="logo" src="background/assets/logo.png" alt="Logo">
-        <h0 id="title">Final Wars: Digitzaki</h0>
-        <p id="description">Revolution: VGF2615</p>
-    </header>
-
-    <video id="backgroundVideo" autoplay muted loop>
-        <source src="video1.mp4" type="video/mp4">
+    <video autoplay loop muted class="lessblur" id="backgroundVideo">
+        <source src="background/assets/fw.mp4" type="video/mp4">
+        Your browser does not support the video tag.
     </video>
+    <header>
+        <h1>Digitzaki's Library</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">HOME</a></li>
+            <li class="dropdown">
+                <a href="#mods">MODS &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="finalwars.html">Godzilla Unleashed: Final Wars</a>
+                    <a href="domination.html">Godzilla: DAM - Domination! [NEW!]</a>
+                    <a href="https://youtu.be/Eoa5IxFFV1g">TvC: Reignited [Coming Soon]</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#tools">TOOLS &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="https://github.com/Digitzaki/GUnleashed-Master-Tools">[WII] GU Ultimate Toolbox</a>
+                    <a href="https://github.com/Digitzaki/Unleashed-Sound-Manager">[WII] GU SFX Editor 2.0</a>
+                    <a href="">[Unreleased] Gamecube Toolbox</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#misc">MISC &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="https://docs.google.com/document/d/1ME8d4rLehMynE8tY4t9L5LopAGg5KFRsSmyRAwDkfcM/edit?usp=sharing">[LNX/SD] STE - Melee Install</a>
+                    <a href="https://drive.google.com/file/d/1QOK9-YRHTcH50U5y98lqPi9xjBSs2prk/view?usp=sharing">Unleashed Modern Controls</a>
+                    <a href="">[FILE LOCKED]</a>
+                </div>
+            </li>
+            <li><a href="https://www.discord.gg/Dfn6yuf9wD" class="discord-button">Discord</a></li>
+            <li><a href="https://youtube.com/@Akiryuzaki" class="youtube-button">YouTube</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="section-green">
+            <div class="fw-image">
+                <a href="https://youtu.be/p4QBdgSC-c0" target="_blank">
+                    <img src="background/assets/logo.png">
+                </a>
+            </div>
+            <h2><strong>Play the Unleashed You Deserved back in '07</strong></h2>
+            <p>
+                <i>Godzilla Unleashed</i>: (OR) Final Wars is a massive expansion of the cancelled project by Gojirex, and created through the help of the STEM Discord and Overhaul Revolution. This project includes COMPLETE controller support (Xbox, PS, and Steam Deck), Higher HD Textures, Faster Gameplay, New Shading, Extensive Riivolution Customization, Military & Monster AI Adjustments, and more! This project's aim is just like <i>Godzilla Final Wars</i>, be cool for no fucking reason. 
+ The Earth cannot be saved. The Vortaak are crumbling. <span id="glitch1" class="glitch"></span> The <span id="glitch1" class="glitch"></span> Crystals <span id="glitch1" class="glitch"></span> See <span id="glitch1" class="glitch"></span> Us. <span id="glitch1" class="glitch"></span>
+            </p>
 
-    <div class="description-box">
-        <h0>A Continuation of Gojirex's “Unleashed Overhaul". Final Wars introduces fully functional modern controls, updated graphics, and faster-paced gameplay. The difficulty has been ramped up for a challenge, even the military is pissed. With large-scale riivolution customization settings, players can tailor their experience to their liking. Unleash the way you deserved back in 2007.
-        </h0>
-    </div>
+            <li><a href="https://drive.google.com/file/d/1YKQc643uMZEO6m_VdBz0hfcqECGvToo1/view?usp=sharing" class="youtube-button">Google Drive Link (Version 1.15)</a></li>
+            <li><a href="https://mega.nz/file/6IlQEbpJ#JFNQvYrW0GJTXeVXDDTlpJojRSmwWlojFpynjg5A4EQ" class="youtube-button">MEGA Link (Version 1.15)</a></li>
+            <li><a href="https://www.youtube.com/watch?v=N36ZjwCREfQ" class="youtube-button">GUFW Install</a></li>
+    </main>
+    <footer>
+        <p>"Mods are for entertainment purposes only. Do not sell. All rights belong to their respective owners."</p>
+    </footer>
 
-    <div class="discord-box">
-        <iframe src="https://discord.com/widget?id=1128547089639546952&theme=dark" width="250" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-    </div>
-    
-    <!-- Include YouTube API script -->
-    <script src="https://apis.google.com/js/platform.js"></script>
-
-    <div class="download-box">
-        <h1>Download Now!</h1>
-    </div>
-
-    <div class="button-container">
-        <a href="https://www.youtube.com/@Akiryuzaki" class="button" target="_blank">YouTube</a>
-        <!-- Drive Button -->
-        <a href="https://drive.google.com/file/d/1YKQc643uMZEO6m_VdBz0hfcqECGvToo1/view?usp=sharing" class="button" target="_blank">DRIVE</a>
-
-        <!-- Mega Button -->
-        <a href="https://mega.nz/file/6IlQEbpJ#JFNQvYrW0GJTXeVXDDTlpJojRSmwWlojFpynjg5A4EQ" class="button" target="_blank">MEGA</a>
-
-         <!-- Mega Button -->
-         <a href="https://www.youtube.com/watch?v=N36ZjwCREfQ" class="button" target="_blank">INSTALL GUIDE</a>
-
-         
-    </div>
-    
-
-    <script>
-        const videoSources = [
-            'background/assets/video1.mp4',
-            'background/assets/video2.mp4',
-            'background/assets/video3.mp4',
-            'background/assets/video4.mp4',
-            'background/assets/video5.mp4'
-            // Add more video sources as needed
-        ];
-    
-        const videoElement = document.getElementById('backgroundVideo');
-        let currentVideoIndex = 0;
-    
-        function getRandomTime(duration) {
-            // Generate a random time within the video duration
-            return Math.floor(Math.random() * (duration - 15));
-        }
-    
-        function getRandomVideoIndex() {
-            let newIndex;
-            do {
-                newIndex = Math.floor(Math.random() * videoSources.length);
-            } while (newIndex === currentVideoIndex);
-    
-            return newIndex;
-        }
-    
-        function fadeAndPlayNextVideo() {
-            const randomIndex = getRandomVideoIndex();
-            const newVideoSrc = videoSources[randomIndex];
-    
-            // Load the new video into the hidden video element
-    
-            // Get the duration of the video and set currentTime randomly
-            videoElement.onloadedmetadata = function() {
-                const randomTime = getRandomTime(this.duration);
-                videoElement.currentTime = randomTime;
-            };
-    
-            // Crossfade between the two videos
-            // After the crossfade, reset the opacity and play the new video
-            videoElement.style.opacity = 0;
-            setTimeout(() => {
-                videoElement.src = newVideoSrc;
-                videoElement.style.opacity = 1;
-                currentVideoIndex = randomIndex;
-            }, 1700);
-        }
-    
-        // Fade and transition every 10 seconds
-        setInterval(fadeAndPlayNextVideo, 11500);
-    
-        // Initial setup
-        const initialVideoIndex = Math.floor(Math.random() * videoSources.length);
-        videoElement.src = videoSources[initialVideoIndex];
-        videoElement.play();
-    </script>
+    <script src="fwscript.js"></script> <!-- Include the JavaScript file -->
 </body>
 </html>
