@@ -10,6 +10,33 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// YouTube IFrame API - loads asynchronously
+var tag = document.createElement('script');
+tag.src = 'https://www.youtube.com/iframe_api';
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+function onYouTubeIframeAPIReady() {
+    var bgVideo = document.getElementById('backgroundVideo');
+    new YT.Player('ytPlayer', {
+        videoId: 'p4QBdgSC-c0',
+        playerVars: {
+            rel: 0
+        },
+        events: {
+            onStateChange: function(event) {
+                if (event.data === YT.PlayerState.PLAYING) {
+                    bgVideo.pause();
+                    bgVideo.classList.add('dimmed');
+                } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+                    bgVideo.play();
+                    bgVideo.classList.remove('dimmed');
+                }
+            }
+        }
+    });
+}
+
 function getRandomCharacters(length) {
     let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
     let result = '';

@@ -12,18 +12,13 @@ body {
   background-color: #0a0a0a;
   color: #fff;
   line-height: 1.6;
-}
-
-.site-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  position: relative;
-  z-index: 1;
 }
 
-/* Video Background */
-.video-background {
+/* Video Backgrounds */
+.video-background,
+.lessblur {
   position: fixed;
   top: 0;
   left: 0;
@@ -31,7 +26,28 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  filter: blur(3px) brightness(0.4);
+  filter: blur(2px) brightness(0.35);
+  transition: filter 0.6s ease, opacity 0.6s ease;
+}
+
+.lessblur {
+  filter: blur(1px) brightness(0.35);
+}
+
+.video-background.dimmed,
+.lessblur.dimmed {
+  filter: blur(4px) brightness(0.12);
+  opacity: 0.4;
+}
+
+.blank-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
 /* Header */
@@ -93,11 +109,6 @@ nav ul li a:hover {
   background-color: rgba(180, 30, 30, 0.6);
 }
 
-.arrow {
-  font-size: 0.7em;
-  opacity: 0.7;
-}
-
 /* Dropdown */
 .dropdown-content {
   display: none;
@@ -137,29 +148,34 @@ nav ul li a:hover {
 }
 
 /* Social Buttons */
-.btn-discord,
-.btn-youtube {
+.discord-button,
+.btn-discord {
   border-radius: 20px !important;
+  background-color: #5865f2 !important;
   font-weight: 700 !important;
   padding: 10px 22px !important;
   font-size: 0.8rem !important;
   transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s !important;
 }
 
-.btn-discord {
-  background-color: #5865f2 !important;
-}
-
+.discord-button:hover,
 .btn-discord:hover {
   background-color: #4752c4 !important;
   transform: translateY(-1px);
   box-shadow: 0 4px 16px rgba(88, 101, 242, 0.4);
 }
 
+.youtube-button,
 .btn-youtube {
+  border-radius: 20px !important;
   background-color: #c62828 !important;
+  font-weight: 700 !important;
+  padding: 10px 22px !important;
+  font-size: 0.8rem !important;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s !important;
 }
 
+.youtube-button:hover,
 .btn-youtube:hover {
   background-color: #a51c1c !important;
   transform: translateY(-1px);
@@ -170,87 +186,140 @@ nav ul li a:hover {
 main {
   flex: 1;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 48px 24px;
 }
 
+/* Content Card */
 .content-card {
-  max-width: 640px;
+  max-width: 800px;
   width: 100%;
   background: rgba(12, 12, 12, 0.85);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 48px 40px;
-  text-align: center;
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
 }
 
-/* Profile Image */
-.profile-image {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto 24px;
-  border: 3px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+/* Mod Hero Section - Logo + Video side by side */
+.mod-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
 }
 
-.profile-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.mod-logo {
+  flex: 0 0 auto;
+}
+
+.mod-logo img {
+  max-width: 220px;
+  height: auto;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.8));
   transition: transform 0.3s;
 }
 
-.profile-image:hover img {
-  transform: scale(1.08);
+.mod-logo img:hover {
+  transform: scale(1.03);
 }
 
-.profile-image {
-  transition: transform 0.3s, box-shadow 0.3s;
+.mod-video {
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
-.profile-image:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+.mod-video iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
 }
 
-/* Content Card Typography */
+/* Section Typography */
 .content-card h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   color: #f5f5f5;
+  text-align: center;
 }
 
-.content-card .intro {
-  color: #b0b0b0;
-  font-size: 0.95rem;
-  margin-bottom: 28px;
+.content-card p {
+  color: #c8c8c8;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
 }
 
-.project-list {
+.content-card p u {
+  text-decoration-color: rgba(198, 40, 40, 0.7);
+}
+
+/* Download Links */
+.download-list {
   list-style: none;
-  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 24px;
 }
 
-.project-list li {
-  padding: 12px 16px;
-  border-left: 3px solid #c62828;
-  margin-bottom: 8px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 0 6px 6px 0;
-  font-size: 0.88rem;
-  color: #d4d4d4;
-  transition: background-color 0.2s, border-color 0.2s;
+.download-list li a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 22px;
+  border-radius: 20px;
+  background-color: #c62828;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
 }
 
-.project-list li:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-left-color: #ef5350;
+.download-list li a:hover {
+  background-color: #a51c1c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(198, 40, 40, 0.4);
+}
+
+.download-list li a.alt-link {
+  background-color: #37474f;
+}
+
+.download-list li a.alt-link:hover {
+  background-color: #263238;
+  box-shadow: 0 4px 16px rgba(55, 71, 79, 0.4);
+}
+
+/* Optional skins / notes */
+.note {
+  text-align: center;
+  color: #999;
+  font-size: 0.84rem;
+  margin-top: 16px;
+}
+
+.note a {
+  color: #ef5350;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.note a:hover {
+  color: #fff;
 }
 
 /* Footer */
@@ -273,6 +342,13 @@ footer p {
   color: #ef5350;
 }
 
+/* Dom image (legacy support) */
+.dom-image img {
+  max-width: 220px;
+  height: auto;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.8));
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   header h1 {
@@ -290,6 +366,15 @@ footer p {
 
   .content-card {
     padding: 32px 24px;
+  }
+
+  .mod-hero {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .mod-video {
+    max-width: 100%;
   }
 
   .dropdown-content {
@@ -315,5 +400,9 @@ footer p {
 
   main {
     padding: 24px 16px;
+  }
+
+  .mod-logo img {
+    max-width: 160px;
   }
 }
