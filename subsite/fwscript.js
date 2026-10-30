@@ -19,7 +19,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 function onYouTubeIframeAPIReady() {
     var bgVideo = document.getElementById('backgroundVideo');
     new YT.Player('ytPlayer', {
-        videoId: 'LuRB8JxDcsI',
+        videoId: 'CHUBXzgH8UQ',
         playerVars: {
             rel: 0
         },
